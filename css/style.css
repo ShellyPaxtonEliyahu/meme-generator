@@ -3,6 +3,7 @@
     padding: 0px;
     margin: 0px;
 }
+
 .main-header{
     height: 10vh;
     background-color: rgb(7, 7, 94);
@@ -30,4 +31,8 @@ canvas {
     margin: 0 auto;
     outline: 1px solid black;
     background-color: white;
+}
+
+.hide {
+    display: none;
 }
