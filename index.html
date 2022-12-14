@@ -8,7 +8,13 @@
     <title>MEMEgenerator</title>
 </head>
 <body onload="onInit()">
+    <header class="main-header">
+        <div class="logo">memegen</div>
+    </header>
     <section class="canvas-editor">
+        <div class="canvas-container">
+            <canvas id="meme-canvas" height="450" width="450" onclick="draw(event)"></canvas>
+        </div>
     </section>
 
     
@@ -19,5 +25,8 @@
 
 
     <script src="js/main.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
 </body>
 </html>

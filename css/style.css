@@ -1,3 +1,33 @@
 *{
     box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+.main-header{
+    height: 10vh;
+    background-color: rgb(7, 7, 94);
+    color: rgb(241, 241, 95);
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+body{
+    background-color: rgb(155, 155, 241);
+}
+
+.canvas-container{
+    height: 90vh;
+    width: 80vw;
+    background-color: transparent;
+    margin: 0 auto;
+    /* margin-top: 3vh; */
+    padding-top: 3vh;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+    outline: 1px solid black;
+    background-color: white;
 }
