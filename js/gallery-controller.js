@@ -2,28 +2,27 @@
 
 
 function onInit() {
-    onMemeInit()
+    document.querySelector('.canvas-editor').hidden = true
     renderGallery()
+    onMemeInit()
 }
 
 function renderGallery() {
     //render the images on the home page
-    var imgs = getImgs()
-    var strHTMLs = imgs.map( img => {
+    const imgs = getImgs()
+    var strHTMLs = imgs.map(img => {
         return `<img src="${img.url}" onclick="onImgSelect(${img.id})">`
     })
-    document.querySelector('.gallery').innerHTML = strHTMLs.join('')
+    const elGallery = document.querySelector('.gallery')
+    elGallery.innerHTML = strHTMLs.join('')
 
 }
 
 
 function onImgSelect(imgId) {
-    var elGallery = document.querySelector('.gallery')
-    elGallery.classList.add('hide')
-    var elEditor = document.querySelector('.canvas-editor')
-    elEditor.classList.remove('hide')
-
-    setImg()
-    renderGallery()
-    renderMeme()
+    // var elGallery = document.querySelector('.gallery')
+    // elGallery.classList.add('hide')
+    // var elEditor = document.querySelector('.canvas-editor')
+    // elEditor.classList.remove('hide')
+    renderMeme(imgId)
 }

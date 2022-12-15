@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +8,53 @@
     <link rel="stylesheet" href="css/style.css">
     <title>MEMEgenerator</title>
 </head>
+
 <body onload="onInit()">
     <header class="main-header">
         <div class="logo">memegen</div>
+        <nav>
+            <ul class="nav-ul clean-list flex">
+                <li>gallery</li>
+                <li>About</li>
+            </ul>
+        </nav>
     </header>
-    <section class="canvas-editor">
+
+    <section class="canvas-editor" hidden>
         <div class="canvas-container">
-            <canvas id="meme-canvas" height="450" width="450" onclick="draw(event)"></canvas>
+            <canvas id="meme-canvas" height="450" width="450"></canvas>
+        </div>
+
+        <div class="control-box flex">
+            <input type="text" class="meme-text" placeholder="Enter your text..." oninput="onSetLineTxt(this)">
+            <div class="location-btns">
+                <button onclick="onSwitchLines()" class="switch-btn" title="switch lines">🔄</button>
+                <button onclick="drawTxt()" class="add-btn" title="add line">➕</button>
+                <button onclick="onRemoveLine()" class="delete-btn" title="delet line">🚮</button>
+            </div>
+
+            <div class="txt-btns">
+                <button onclick="onChangeFontSize(1)" class="big-font-btn" title="bigger font">Α+</button>
+                <button onclick="onChangeFontSize(-1)" class="small-font-btn" title="smaller font">Α-</button>
+                <button onclick="onChangeTextAlign('left')" class="align-left-btn" title="text left">⬅</button>
+                <button onclick="onChangeTextAlign('right')"class="align-right-btn" title="text right">➡</button>
+                <button onclick="onChangeTextAlign('center')"class="center-btn" title="text center">Ξ</button>
+                <button class="font-change-btn" title="change font">🔤</button>
+                <button class="change-stroke-btn" title="change font frame">Ο</button>
+                <button onclick="onChangeTextColor(color)" class="font-color-btn" title="change text color">🎨</button>
+            </div>
         </div>
     </section>
 
-    
+
 
     <section class="gallery">
     </section>
 
 
-    <script src="js/meme-controller.js"></script>
     <script src="js/meme-service.js"></script>
-    <script src="js/gallery-service.js"></script>
+    <script src="js/meme-controller.js"></script>
     <script src="js/gallery-controller.js"></script>
 </body>
+
 </html>
