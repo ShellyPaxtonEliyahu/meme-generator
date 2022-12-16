@@ -26,7 +26,7 @@
         </div>
 
         <div class="control-box flex">
-            <input type="text" class="meme-text" placeholder="Enter your text..." oninput="onSetLineTxt(this)">
+                <input type="text" class="meme-text" placeholder="Enter your text..." onkeyup="onSetLineTxt(this.value)">
             <div class="location-btns">
                 <button onclick="onSwitchLines()" class="switch-btn" title="switch lines">🔄</button>
                 <button onclick="drawTxt()" class="add-btn" title="add line">➕</button>
@@ -39,16 +39,17 @@
                 <button onclick="onChangeTextAlign('left')" class="align-left-btn" title="text left">⬅</button>
                 <button onclick="onChangeTextAlign('right')"class="align-right-btn" title="text right">➡</button>
                 <button onclick="onChangeTextAlign('center')"class="center-btn" title="text center">Ξ</button>
-                <button class="font-change-btn" title="change font">🔤</button>
+                <!-- <button class="font-change-btn" title="change font">🔤</button> -->
                 <button class="change-stroke-btn" title="change font frame">Ο</button>
-                <button onclick="onChangeTextColor(color)" class="font-color-btn" title="change text color">🎨</button>
+                <input type="color" value="#3271a8" oninput="onChangeTextColor(this)">
             </div>
         </div>
     </section>
 
 
 
-    <section class="gallery">
+    <section class="gallery-container">
+        <div class="gallery"></div>
     </section>
 
 
