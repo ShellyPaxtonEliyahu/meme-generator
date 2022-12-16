@@ -13,45 +13,35 @@ function onMemeInit(imgId) {
     createMeme(imgId)
     renderMeme(imgId)
     resizeCanvas()
-    console.log('memeinitend')
+    // console.log('memeinitend')
 }
 
 function renderMeme(imgId) {
-    console.log('rendermemestart')
-    // render an image to the canvas 
-    // render ininitial text-line
     const img = setImg(imgId)
     const elImg = new Image()
     elImg.src = img.url
-    console.log('elimg',elImg)
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         renderTxt()
     }
-    console.log('rendermemeend')
 }
 
 function renderTxt() {
-    console.log('rendertxtstart')
     const meme = getMeme()
-    meme.lines.forEach((line, selectedLineIdx) => drawTxt(line, selectedLineIdx))
-    console.log('rendertxtend')
+    meme.lines.forEach((line, lineIdx) => drawTxt(line, lineIdx))
 }
 
 function onSetLineTxt(txt) {
-    console.log('onsetlinetxtstart')
     setLineTxt(txt)
-    // renderMeme()
-    console.log('onsetlinetxtend')
+    const meme = getMeme()
+    renderMeme(meme.selectedImgId)
 }
 
-function drawTxt(txt, selectedLineIdx) {
-    console.log('drawtxtstart')
-    const memeLineIdx = txt.selectedLineIdx
-
+function drawTxt(line, lineIdx) {
+    
     const x = gElCanvas.width / 2
     let y
-    switch (memeLineIdx) {
+    switch (lineIdx) {
         case 0:
             y = 50
             break;
@@ -67,56 +57,69 @@ function drawTxt(txt, selectedLineIdx) {
         case 4:
             y = gElCanvas.height / 2 + 25
             break;
-        case memeLineIdx >= 5:
+        case lineIdx >= 5:
             y = gElCanvas.height / 2 + 70
             break;
     }
-    addLine(txt, x, y)
-    console.log('drawtxtend')
+    renderLine(line, x, y)
+}
+
+function onAddLine() {
+    addLine()
+    const meme = getMeme()
+    renderMeme(meme.selectedImgId)
+}
+
+function renderLine(line, x, y) {
+    gCtx.lineWidth = 2
+    gCtx.strokeStyle = 'black'
+    gCtx.fillStyle = line.color
+    gCtx.font = `${line.size}px Impact`
+    gCtx.textAlign = line.align
+    gCtx.fillText(line.txt, x, y)
+    gCtx.strokeText(line.txt, x, y)
 }
 
 function onSwitchLines() {
-    console.log('onswitchstart')
     const meme = getMeme()
-    meme.selectedLineIdx += 1
-    document.querySelector('.meme-text').value = ''
-    // renderMeme()
-    console.log('onswitchend')
-
+    var switchWith = meme.selectedLineIdx === 0 ? meme.lines.length-1 : meme.selectedLineIdx-1
+    var line = meme.lines[meme.selectedLineIdx]
+    meme.lines[meme.selectedLineIdx] = meme.lines[switchWith]
+    meme.lines[switchWith] = line
+    renderMeme(meme.selectedImgId)
+    //document.querySelector('.meme-text').value = ''
 }
 
+function onSelectLine(lineIdx) {
+    const meme = getMeme()
+    meme.selectedLineIdx = lineIdx
+    renderMeme(meme.selectedImgId)
+}
 
 function onRemoveLine() {
-    console.log('onremovestart')
     removeLine()
-    // renderMeme()
-    document.querySelector('.meme-text').value = ''
-    console.log('onremoveend')
-
+    //document.querySelector('.meme-text').value = ''
+    const meme = getMeme()
+    renderMeme(meme.selectedImgId)
 }
 
 function onChangeFontSize(diff) {
-    console.log('onchangefontsizestart')
     const meme = getMeme()
     meme.lines[meme.selectedLineIdx].size += diff
-    // renderMeme()
-    console.log('onchangefontsizeend')
+    renderMeme(meme.selectedImgId)
 }
 
 function onChangeTextAlign(value) {
-    console.log('onchangetxtalignstart')
     const meme = getMeme()
     meme.lines[meme.selectedLineIdx].align = value
-    // renderMeme()
-    console.log('onchangetxtalignend')
+    renderMeme(meme.selectedImgId)
 }
 
 function onChangeTextColor(color) {
     console.log('onchangetxtcolorstart')
     const meme = getMeme()
     meme.lines[meme.selectedLineIdx].color = color.value
-    // renderMeme()
-    console.log('onchangetxtcolorend')
+    renderMeme(meme.selectedImgId)
 }
 
 

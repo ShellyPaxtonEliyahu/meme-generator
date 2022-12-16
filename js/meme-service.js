@@ -23,21 +23,25 @@ const gImgs = [
 var gMeme
 
 function createMeme(imgId) {
-    console.log('getmemestart')
     gMeme = {
-        selectedImgId: setImg(imgId),
+        selectedImgId: imgId,
         selectedLineIdx: 0,
-        lines: [{
-            txt: 'try yourself',
-            size: 20,
-            align: 'center',
-            color: 'white',
-            font: 'Impact',
-            strokeColor: 'black'
-        }]
-        
+        lines: []
     }
-    console.log('getmemeend')
+    addLine()
+}
+
+function addLine() {
+    var line = {
+        txt: 'try yourself',
+        size: 20,
+        align: 'center',
+        color: 'white',
+        font: 'Impact',
+        strokeColor: 'black'
+    }
+    gMeme.selectedLineIdx = gMeme.lines.length
+    gMeme.lines.push(line)
 }
 
 function getMeme() {
@@ -45,56 +49,19 @@ function getMeme() {
 }
 
 function setLineTxt(txt) {
-    console.log('setlinetxtstart')
-    //update the initial line txt to the user line txt
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
-    // renderMeme()
-    console.log('setlinetxtend')
-}
-
-function addLine(txt, x, y) {
-    console.log('addlinestart')
-    var line = {
-        txt: txt,
-        size: 20,
-        align: 'center',
-        color: 'white',
-        font: 'Impact',
-        strokeColor: 'black'
-    }
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'black'
-    gCtx.fillStyle = line.color
-    gCtx.font = '20px Impact'
-    gCtx.textAlign = line.align
-    gCtx.fillText(txt, x, y)
-    gCtx.strokeText(txt, x, y)
-    gMeme.lines.push(line)
-    gMeme.selectedLineIdx +=1
-    console.log('addlinestart')
 }
 
 function removeLine() {
-    console.log('removelinestart')
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
-    gMeme.selectedLineIdx -= 1
-    console.log('removelineend')
+    gMeme.selectedLineIdx = 0
 }
 
 function getImgs() {
-    console.log('getimgstart')
-    console.log('getimgend')
     return gImgs
 }
 
 function setImg(imgId) {
-    console.log('setimgstart')
     const img = gImgs.find(img => img.id === imgId)
-    console.log(gImgs)
-    console.log(imgId)
-    console.log('setimgend', img)
-    
     return img
-    // gImgs.find(img => img.id === imgId)
-    // gMeme.selectedImgId
 }
