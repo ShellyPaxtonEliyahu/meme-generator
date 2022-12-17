@@ -7,7 +7,6 @@ let gCtx
 function onMemeInit(imgId) {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    document.querySelector('.gallery').hidden = true
     document.querySelector('.canvas-editor').hidden = false
     createMeme(imgId)
     renderMeme(imgId)
@@ -117,7 +116,10 @@ function onChangeTextColor(color) {
     renderMeme(meme.selectedImgId)
 }
 
-
+function downloadCnvas(elLink) {
+    const data = gElCanvas.toDataURL('image/jpg')
+    elLink.href = data
+}
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth - 20

@@ -2,7 +2,6 @@
 
 
 function onInit() {
-    document.querySelector('.canvas-editor').hidden = true
     renderGallery()
 }
 

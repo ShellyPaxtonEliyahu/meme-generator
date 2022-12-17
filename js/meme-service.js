@@ -34,7 +34,7 @@ function createMeme(imgId) {
 function addLine() {
     var line = {
         txt: 'try yourself',
-        size: 20,
+        size: 30,
         align: 'center',
         color: 'white',
         font: 'Impact',

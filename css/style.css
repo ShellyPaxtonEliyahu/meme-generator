@@ -4,17 +4,6 @@
 @import './basixs/helpers.css';
 
 /* cmps */
-@import './cmps/canvas.css';
-@import './cmps/gallery.css';
 @import './cmps/header.css';
-
-
-
-/* basixs */
-/* @import url('basixs/base.css'); 
-@import url('basixs/helpers.css'); */
-
-/* cmps */
-/* @import url('cmps/canvas.css');
-@import url('cmps/gallery.css');
-@import url('cmps/header.css'); */
+@import './cmps/gallery.css';
+@import './cmps/canvas.css';

@@ -12,20 +12,21 @@
 <body onload="onInit()">
     <header class="main-header">
         <div class="logo">memegen</div>
-        <nav class="main-nav">
+        <!-- <nav class="main-nav">
             <ul class="nav-ul clean-list flex">
                 <li>gallery</li>
                 <li>About</li>
             </ul>
-        </nav>
+        </nav> -->
     </header>
 
     <section class="canvas-editor" hidden>
         <div class="canvas-container">
             <canvas id="meme-canvas" height="450" width="450"></canvas>
+            <a href="#" onclick="downloadCnvas(this)" download="my-img">download</a>
         </div>
 
-        <div class="control-box flex">
+        <div class="control-box">
                 <input type="text" class="meme-text" placeholder="Enter your text..." onkeyup="onSetLineTxt(this.value)">
             <div class="location-btns">
                 <button onclick="onSwitchLines()" class="switch-btn" title="switch lines">🔄</button>
