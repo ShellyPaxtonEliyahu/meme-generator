@@ -3,6 +3,7 @@
 
 function onInit() {
     renderGallery()
+    // document.querySelector('.canvas-editor').hidden = true
 }
 
 function renderGallery() {

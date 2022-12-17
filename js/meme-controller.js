@@ -8,6 +8,7 @@ function onMemeInit(imgId) {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     document.querySelector('.canvas-editor').hidden = false
+    console.log('onmemeinit')
     createMeme(imgId)
     renderMeme(imgId)
     resizeCanvas()
