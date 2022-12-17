@@ -1,0 +1,22 @@
+.gallery-container{
+    background-color: rgb(240, 240, 103);
+    margin: 0 auto;
+    width: 90vw;
+    height: 100%;
+    padding: 15px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px,1fr));
+    gap: 5px;
+
+}
+
+
+@media (min-width:780px){
+    .gallery {
+        grid-template-columns: repeat(auto-fit, min-max(355px,1fr));
+        gap: 8px;
+    }
+}

@@ -5,7 +5,6 @@ let gCtx
 
 
 function onMemeInit(imgId) {
-    console.log('memeinitstart')
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     document.querySelector('.gallery').hidden = true
@@ -13,7 +12,6 @@ function onMemeInit(imgId) {
     createMeme(imgId)
     renderMeme(imgId)
     resizeCanvas()
-    // console.log('memeinitend')
 }
 
 function renderMeme(imgId) {
@@ -87,7 +85,6 @@ function onSwitchLines() {
     meme.lines[meme.selectedLineIdx] = meme.lines[switchWith]
     meme.lines[switchWith] = line
     renderMeme(meme.selectedImgId)
-    //document.querySelector('.meme-text').value = ''
 }
 
 function onSelectLine(lineIdx) {
@@ -98,7 +95,6 @@ function onSelectLine(lineIdx) {
 
 function onRemoveLine() {
     removeLine()
-    //document.querySelector('.meme-text').value = ''
     const meme = getMeme()
     renderMeme(meme.selectedImgId)
 }
@@ -116,7 +112,6 @@ function onChangeTextAlign(value) {
 }
 
 function onChangeTextColor(color) {
-    console.log('onchangetxtcolorstart')
     const meme = getMeme()
     meme.lines[meme.selectedLineIdx].color = color.value
     renderMeme(meme.selectedImgId)

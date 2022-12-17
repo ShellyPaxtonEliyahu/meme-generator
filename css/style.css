@@ -1,43 +1,9 @@
 
-.main-header{
-    height: 10vh;
-    background-color: rgb(7, 7, 94);
-    color: rgb(241, 241, 95);
-    font-size: 20px;
-    padding: 20px;
-    border-radius: 10px;
-}
+/* basixs */
+@import './basixs/base.css';
+@import './basixs/helpers.css';
 
-.canvas-container{
-    height: 70vh;
-    width: 70vw;
-    background-color: transparent;
-    margin: 0 auto;
-    padding-top: 3vh;
-    /* display: flex; */
-}
-
-canvas {
-    display: block;
-    margin: 0 auto;
-    outline: 1px solid black;
-    background-color: rgb(202, 224, 243);
-}
-
-.control-box {
-    margin: 10px;
-}
-
-.gallery-container{
-    background-color: rgb(240, 240, 103);
-    margin: 0 auto;
-    width: 90vw;
-    height: 100vh;
-    padding: 15px;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-
-}
+/* cmps */
+@import './cmps/canvas.css';
+@import './cmps/gallery.css';
+@import './cmps/header.css';

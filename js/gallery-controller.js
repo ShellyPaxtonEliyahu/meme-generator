@@ -4,7 +4,6 @@
 function onInit() {
     document.querySelector('.canvas-editor').hidden = true
     renderGallery()
-    // console.log('oninitend')
 }
 
 function renderGallery() {
@@ -14,13 +13,10 @@ function renderGallery() {
     })
     const elGallery = document.querySelector('.gallery')
     elGallery.innerHTML = strHTMLs.join('')
-    // console.log('renderGalleryend')
-
 }
 
 
 function onImgSelect(imgId) {
     onMemeInit(imgId)
     document.querySelector('.gallery-container').hidden = true
-    // console.log('onimgselectend')
 }

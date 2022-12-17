@@ -1,0 +1,9 @@
+.main-header{
+    height: 10vh;
+    background-color: rgb(7, 7, 94);
+    color: rgb(241, 241, 95);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
